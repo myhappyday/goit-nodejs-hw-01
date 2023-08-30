@@ -3,7 +3,7 @@ const path = require("path");
 const { nanoid } = require("nanoid");
 
 const contactsPath = path.join(__dirname, "db", "contacts.json");
-console.log("booksPath: ", booksPath);
+// console.log("contactsPath: ", contactsPath);
 
 const getListContacts = async () => {
   const data = await fs.readFile(contactsPath);
@@ -44,7 +44,7 @@ const updateContactById = async ({ id, data }) => {
   return contacts[index];
 };
 
-const removeContact = async (id) => {
+const removeContactById = async (id) => {
   const contacts = await getListContacts();
   const index = contacts.findIndex((contact) => contact.id === id);
   if (index === -1) {
@@ -61,5 +61,5 @@ module.exports = {
   getContactById,
   addContact,
   updateContactById,
-  removeContact,
+  removeContactById,
 };
